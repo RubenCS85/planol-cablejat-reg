@@ -746,7 +746,7 @@ ol.steps li,ul.open li{max-width:76ch;padding-left:4px}
     for(r in rows) rows[r].classList.toggle('act',!!sel[r]);
     for(k in devRect) devRect[k].forEach(function(rc){ rc.classList.toggle('on',!!E&&E.k===k); });
     info.textContent='';
-    if(!act){ info.appendChild(span('hint',"Toca un cable, o un equip per veure'n la foto i tots els seus cables.")); return; }
+    if(!act){ info.appendChild(span('hint',"Toca un cable, o un equip per veure'n la foto i tots els seus cables. Passa el ratolí per damunt d'un equip per veure la foto en gran.")); return; }
     if(E){
       var im=document.createElement('img'); im.src=FOTO[E.img]; im.alt='Amplia la foto'; im.title='Amplia la foto';
       im.addEventListener('click',function(){ openLb(FOTO[E.img],E.t,E.b); }); info.appendChild(im);
