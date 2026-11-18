@@ -35,3 +35,11 @@ cap = ('<!doctype html>\n<html lang="ca">\n<head>\n<meta charset="utf-8">\n'
 with open(INDEX, 'w', encoding='utf-8', newline='') as fh:
     fh.write(cap + nou + '\n</body>\n</html>\n')
 print('index.html actualitzat')
+
+# pressupost.html: el pressupost amb la mateixa capçalera
+with open(os.path.join(AQUI, '..', 'pressupost-r4.html'), encoding='utf-8') as fh:
+    pres = fh.read()
+with open(os.path.join(AQUI, '..', 'pressupost.html'), 'w', encoding='utf-8', newline='') as fh:
+    fh.write(cap.replace('<style>body{margin:0}</style>', '<style>body{margin:0}[hidden]{display:none!important}</style>')
+             + pres + '\n</body>\n</html>\n')
+print('pressupost.html actualitzat')

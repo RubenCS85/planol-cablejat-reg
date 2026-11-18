@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Pressupost quadre de reg R4</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: capçalera amb el total, després una taula per capítol; columnes numèriques alineades a la dreta */
+:root{
+  --bg:#f6f7f4; --panel:#ffffff; --fg:#1d2420; --muted:#5d6a62; --line:#dde2dc;
+  --accent:#2f6b4f; --accent-soft:#e3efe8; --warn:#9a5b00; --warn-soft:#fbefdc; --off:#9aa59e;
+  --f-head:"IBM Plex Sans Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#151a17; --panel:#1d2420; --fg:#e7ece8; --muted:#9aa89f; --line:#2f3832;
+  --accent:#7cc3a0; --accent-soft:#1f3329; --warn:#e8b25c; --warn-soft:#3a2d17; --off:#5d6a62; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#151a17; --panel:#1d2420; --fg:#e7ece8; --muted:#9aa89f; --line:#2f3832;
+  --accent:#7cc3a0; --accent-soft:#1f3329; --warn:#e8b25c; --warn-soft:#3a2d17; --off:#5d6a62; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--f-body)}
+.wrap{max-width:1080px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
+h1,h2{font-family:var(--f-head);text-wrap:balance;margin:0}
+h1{font-size:30px;line-height:1.15}
+h2{font-size:19px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+h2 .sub{font:500 15px var(--f-mono);color:var(--muted)}
+.lead{color:var(--muted);max-width:68ch;margin:6px 0 0}
+.lead a{color:var(--accent)}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 16px}
+.tile .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tile .v{font:600 26px var(--f-mono);font-variant-numeric:tabular-nums}
+.tile.main{background:var(--accent-soft);border-color:transparent}
+.tile.main .v{color:var(--accent)}
+.tile .n{font-size:13px;color:var(--muted)}
+section{display:grid;gap:10px}
+.tbl{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:720px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td .what{font-weight:500}
+td .note{font-size:13px;color:var(--muted)}
+td .note a{color:inherit}
+tr.off td:not(:first-child){color:var(--off)}
+tr.off td .what{text-decoration:line-through}
+#caps{display:grid;gap:28px}
+table{table-layout:fixed}
+col.c1{width:44px}col.c3{width:120px}col.c4{width:84px}col.c5{width:104px}col.c6{width:110px}
+input[type=number]{width:88px;font:14px var(--f-mono);text-align:right;padding:3px 6px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--fg)}
+input[type=number].q{width:56px}
+input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent)}
+input:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chip{display:inline-block;font-size:11px;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:99px;white-space:nowrap}
+.c-mem{background:var(--accent-soft);color:var(--accent)}
+.c-est{background:var(--warn-soft);color:var(--warn)}
+.c-ex{background:var(--line);color:var(--muted)}
+.foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+button{font:500 14px var(--f-body);padding:7px 14px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
+button:hover{border-color:var(--accent)}
+.notes{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px 18px}
+.notes ul{margin:6px 0 0;padding-left:20px}
+.notes li{margin:4px 0;max-width:80ch}
+@media (prefers-reduced-motion:no-preference){.tile .v{transition:color .2s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Pressupost del quadre de reg R4</h1>
+    <p class="lead">Raspberry Pi 3B, watchdog ZIEHL, contactor K0 i 4 vàlvules de 24 VAC. Preus amb IVA. Els que estan marcats <span class="chip c-mem">memòria</span> són els consultats el 17/11/2026; els <span class="chip c-est">estimació</span> són preus orientatius de botiga que cal confirmar. Pots canviar quantitats i preus, i marcar o desmarcar partides. Plànol: <a href="https://rubencs85.github.io/planol-cablejat-reg/">rubencs85.github.io/planol-cablejat-reg</a>.</p>
+  </header>
+
+  <div class="sum" id="sum"></div>
+  <div id="caps"></div>
+
+  <div class="notes">
+    <strong>Què cal tindre en compte</strong>
+    <ul>
+      <li>No és una oferta tancada. Preus, estoc i enviaments s'han de confirmar al carret de cada botiga.</li>
+      <li>La part de 230 V (Q0–Q3, secció de cables, caixa) la decidix l'instal·lador; les xifres són per fer-se una idea.</li>
+      <li>El transformador Legrand 042857 no té preu de compra confirmat: s'ha vist entre 69 € i 89 € sense IVA segons distribuïdor. Demana'n oferta.</li>
+      <li>Els metres de mànega depenen de la distància del quadre al pericó: ajusta la quantitat.</li>
+      <li>La hidràulica (col·lector, filtre, llaves, racors) està pendent de les dades del camp.</li>
+      <li>El router RUT200 necessita una SIM amb quota mensual, que no està inclosa.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <span>Els canvis es guarden només en este navegador.</span>
+    <button type="button" id="reset">Tornar als valors inicials</button>
+  </div>
+</div>
+
+<script>
+var MEM='mem', EST='est', EXI='ex';
+// [id, concepte, nota, quantitat, preu unitari (€ IVA inclòs), origen, inclòs per defecte]
+var CAPS=[
+ {t:'Control i comunicacions', r:[
+  ['pi','Raspberry Pi 3 Model B','Ja la tens',1,0,EXI,1],
+  ['sd','microSD 32 GB High Endurance','Pot vindre amb la pantalla',1,12,EST,1],
+  ['tft','Raspberry Pi Touch Display 2, 7"','Tiendatec; inclou cable DSI',1,69.95,MEM,1],
+  ['psu','Font oficial micro-USB 5,1 V / 2,5 A','Tiendatec',1,9.95,MEM,1],
+  ['rtc','Adafruit DS3231 RTC 3013','Opencircuit',1,26.75,MEM,1],
+  ['cr','Pila CR1220','Per al RTC',1,2,EST,1],
+  ['ws','Waveshare Modbus POE ETH Relay (B)','Melopero; IVA per confirmar',1,54.60,MEM,1],
+  ['sw','TP-Link TL-SF1005D','PcComponentes, venedor T-LOW',1,8.81,MEM,1],
+  ['eth','Latiguillos Ethernet Cat 6','Pi, relés i router',3,3,EST,1],
+  ['rt','Teltonika RUT200 (opcional)','Senetic; SIM a banda',1,129.58,MEM,0]
+ ]},
+ {t:'Potència i seguretat', r:[
+  ['wd','ZIEHL WD100V Z224319','Elektro4000; preu amb IVA al 21 %',1,198.33,MEM,1],
+  ['k0','Finder 22.32.0.024.4320 (K0)','RS; IVA per confirmar',1,38.94,MEM,1],
+  ['g1','Mean Well HDR-60-24 (G1)','Senetic',1,19.23,MEM,1],
+  ['t1','Legrand 042857, 100 VA 24 VAC (T1)','Demanar oferta',1,83,EST,1],
+  ['q0','Q0: magnetotèrmic general + diferencial 30 mA','Marca genèrica de botiga',1,35,EST,1],
+  ['q','Q1–Q3: magnetotèrmics 1P+N','',3,8,EST,1],
+  ['f','F1–F3: portafusibles 10×38','',3,5,EST,1],
+  ['fus','Fusibles 10×38','Inclou recanvis',6,1.5,EST,1],
+  ['s0','S0: selector 22 mm 2 posicions + bloc NC','Muntat a la porta',1,12,EST,1],
+  ['aqy','Panasonic AQY212EH (IF1)','DigiKey',1,1.91,MEM,1],
+  ['if1','Placa IF1: resistències, sòcol DIP-4, borns','La memòria diu 5–15 €',1,10,EST,1]
+ ]},
+ {t:'Quadre i cablejat intern', r:[
+  ['caixa','Caixa 500×400×200 mm IP65 amb placa','Polièster o metàl·lica',1,100,EST,1],
+  ['xs','XS1–XS3: preses Schuko per a carril DIN','Obramat, 4,65 €',3,4.65,EST,1],
+  ['borns','Borns de pas 2,5 mm² + ponts i etiquetes','Unes 32 posicions',32,0.8,EST,1],
+  ['pe','Borns de terra PE','',4,1.5,EST,1],
+  ['din','Carril DIN 35 mm i canaleta amb tapa','2–3 trams',1,20,EST,1],
+  ['pg','Premsaestopes, tapons, punteres i brides','',1,20,EST,1],
+  ['cint','Cable intern H07V-K 1,5 mm², colors','',1,25,EST,1]
+ ]},
+ {t:'Camp', r:[
+  ['ev','Rain Bird 100-HV 24 VAC, 1"','Riegopro, 16,29 € cada una',4,16.29,MEM,1],
+  ['cx','Connectors estancs RC, paquet de 5','Riegopro',2,4.85,MEM,1],
+  ['mng','Mànega de camp 9×1,5 mm² (€/m)','Ajusta els metres; 9 fils permeten 8 sectors',30,3,EST,1],
+  ['pit','Pericó rectangular per a 4 vàlvules','Obramat, 43×30 cm',1,11.95,EST,1],
+  ['hid','Hidràulica: col·lector, filtre, llaves, racors','Pendent de dades del camp',1,60,EST,1]
+ ]},
+ {t:'Enviaments', r:[
+  ['p1','Enviament ZIEHL a Espanya','Elektro4000',1,21.78,MEM,1],
+  ['p2','Enviament Tiendatec','Pantalla i font en una comanda',1,3.95,MEM,1],
+  ['p3','Enviament Senetic','HDR-60-24 (i router, si el compres)',1,9.44,MEM,1],
+  ['p4','Enviament PcComponentes','Switch',1,5.5,MEM,1],
+  ['p5','Altres enviaments','Melopero, RS, Opencircuit, Riegopro, DigiKey',1,25,EST,1]
+ ]},
+ {t:'Opcions', r:[
+  ['mo','Instal·lador: part de 230 V i revisió','4 h a 40 €/h',4,40,EST,0],
+  ['ev8','Ampliació a 8 sectors: 4 vàlvules més','Riegopro',4,16.29,MEM,0],
+  ['cx8','Ampliació a 8 sectors: connectors','Riegopro, paquet de 5',2,4.85,MEM,0]
+ ]}
+];
+var KEY='pressupost-r4-v1', st={};
+try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){st={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+function val(r){var s=st[r[0]]||{};return{q:s.q!=null?s.q:r[3],p:s.p!=null?s.p:r[4],on:s.on!=null?s.on:!!r[6]}}
+var eur=new Intl.NumberFormat('ca-ES',{style:'currency',currency:'EUR'});
+function chip(o){return o===MEM?'<span class="chip c-mem">memòria</span>':o===EST?'<span class="chip c-est">estimació</span>':'<span class="chip c-ex">existent</span>'}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+function build(){
+  var h='';
+  CAPS.forEach(function(c,ci){
+    h+='<section><h2>'+esc(c.t)+'<span class="sub" id="st'+ci+'"></span></h2><div class="tbl"><table><colgroup><col class="c1"><col><col class="c3"><col class="c4"><col class="c5"><col class="c6"></colgroup><thead><tr><th></th><th>Concepte</th><th>Origen</th><th class="num">Quant.</th><th class="num">Preu u.</th><th class="num">Import</th></tr></thead><tbody>';
+    c.r.forEach(function(r){
+      h+='<tr id="r-'+r[0]+'"><td><input type="checkbox" id="on-'+r[0]+'" aria-label="Incloure '+esc(r[1])+'"></td>'+
+        '<td><div class="what">'+esc(r[1])+'</div>'+(r[2]?'<div class="note">'+esc(r[2])+'</div>':'')+'</td>'+
+        '<td>'+chip(r[5])+'</td>'+
+        '<td class="num"><input class="q" type="number" min="0" step="1" id="q-'+r[0]+'" aria-label="Quantitat"></td>'+
+        '<td class="num"><input type="number" min="0" step="0.01" id="p-'+r[0]+'" aria-label="Preu unitari"></td>'+
+        '<td class="num" id="t-'+r[0]+'"></td></tr>';
+    });
+    h+='</tbody></table></div></section>';
+  });
+  document.getElementById('caps').innerHTML=h;
+  CAPS.forEach(function(c){c.r.forEach(function(r){
+    var v=val(r);
+    document.getElementById('on-'+r[0]).checked=v.on;
+    document.getElementById('q-'+r[0]).value=v.q;
+    document.getElementById('p-'+r[0]).value=v.p;
+    ['on','q','p'].forEach(function(f){
+      document.getElementById(f+'-'+r[0]).addEventListener(f==='on'?'change':'input',function(e){
+        st[r[0]]=st[r[0]]||{};
+        st[r[0]][f]=f==='on'?e.target.checked:(parseFloat(e.target.value)||0);
+        save();calc();
+      });
+    });
+  })});
+  calc();
+}
+function calc(){
+  var tot=0,mem=0,est=0,opt=0,cnt=0;
+  CAPS.forEach(function(c,ci){
+    var sub=0;
+    c.r.forEach(function(r){
+      var v=val(r),t=v.q*v.p;
+      document.getElementById('t-'+r[0]).textContent=eur.format(t);
+      document.getElementById('r-'+r[0]).classList.toggle('off',!v.on);
+      if(v.on){sub+=t;if(r[5]===MEM)mem+=t;else if(r[5]===EST)est+=t;cnt++}
+      else opt+=t;
+    });
+    document.getElementById('st'+ci).textContent=eur.format(sub);
+    tot+=sub;
+  });
+  document.getElementById('sum').innerHTML=
+    '<div class="tile main"><div class="k">Total seleccionat</div><div class="v">'+eur.format(tot)+'</div><div class="n">'+cnt+' partides, IVA inclòs</div></div>'+
+    '<div class="tile"><div class="k">Amb preu consultat</div><div class="v">'+eur.format(mem)+'</div><div class="n">Preus de la memòria</div></div>'+
+    '<div class="tile"><div class="k">Estimat</div><div class="v">'+eur.format(est)+'</div><div class="n">Cal confirmar-lo</div></div>'+
+    '<div class="tile"><div class="k">Fora del total</div><div class="v">'+eur.format(opt)+'</div><div class="n">Partides desmarcades</div></div>';
+}
+document.getElementById('reset').addEventListener('click',function(){st={};save();build()});
+build();
+</script>
+
+</body>
+</html>
